@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header"><i>헤더 요소</i></h1>
+    <ul>
+      <li class="item">목록1</li>
+      <li class="item">목록2</li>
+      <li class="item">목록3</li>
+      <li class="item">목록4</li>
+    </ul>
+    <button type="button">변경</button>
+    <script>
+      //document 요소 찾기
+      // document.getElementById("아이디값");//아이디값일치
+      // document.querySelector("#아이디값 or .클래스명 즉 css 선택자");//첫번째 조건에 만족하는 요소
+      // document.querySelectorAll();// 여러개를 배열로
+
+      // 처음에 만나는 요소 반환
+      //   const h1 = document.getElementById("header");
+      const h1 = document.querySelector("#header");
+      console.log(h1);
+      // 태그 안 다른 태그 포함 시 태그 요소도 같이 가져옴
+      console.log(h1.innerHTML);
+      // 태그 안 text 가져오기
+      console.log(h1.innerText);
+      console.log(h1.textContent);
+      // id 속성 값 가져오기
+      console.log(h1.id);
+      // class 속성 값 가져오기
+      console.log(h1.classList);
+
+      // text 값 변경
+      //   h1.textContent = "점심시간";
+      //태그 포함시 의미가 있다
+      //   h1.innerHTML = "<i>점심시간</i>";
+
+      //변경 버튼 클릭 시 h1 의 텍스트를 변경
+      const btn = document.querySelector("button");
+      // 클릭, 키보드 입력, 마우스 동작 등의 이벤트가 일어나는지 감시(이벤트 리스너)
+
+      btn.addEventListener("click", (e) => {
+        // console.log("이번트 대상 ", e.target);
+        h1.innerHTML = "<i>점심시간</i>";
+      });
+
+      // li 첫번째 요소
+      //   const li = document.querySelector("li");
+      const li = document.querySelector(".item");
+      console.log(li);
+      // 모든 li 찾기
+      const lis = document.querySelectorAll(".item");
+      lis.forEach((li) => {
+        console.log(li);
+      });
+    </script>
+  </body>
+</html>
