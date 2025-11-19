@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>input 변화 감지</h1>
+    <!--textContent, inner ~~ -->
+    <form action="" method="get">
+      <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email" />
+      </div>
+      <div>
+        <label for="addr">주소</label>
+        <input type="addr" name="addr" id="addr" />
+      </div>
+    </form>
+    <script>
+      const name = document.getElementById("name");
+      name.addEventListener("change", (e) => {
+        console.log(e.target);
+        //form 태그 안에 들어오는 요소들은 value로 가져올 수 있다.
+        // 내용 변화가 있어야만 실행됨
+        console.log(e.target.value);
+        console.log(name.value);
+        name.value = name.value.toLowerCase();
+      });
+      //내용변화와 상관없이 이벤트 발생
+      const email = document.getElementById("email");
+      email.addEventListener("blur", (e) => {
+        //form 태그 안에 들어오는 요소들은 value로 가져올 수 있다.
+        email.value = email.value.toLowerCase();
+        alert("email");
+      });
+      // 입력 자체가 소문자로 됨
+      const addr = document.getElementById("addr");
+      addr.addEventListener("input", (e) => {
+        addr.value = addr.value.toLowerCase();
+      });
+    </script>
+  </body>
+</html>
