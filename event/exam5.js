@@ -1,3 +1,22 @@
+document.querySelector("a").addEventListener("click", (e) => {
+  e.preventDefault();
+  //href 값 가져오기
+  console.log("href", e.target.href);
+  // target 값 가져오기
+  console.log("target", e.target.target);
+  // data- 값 가져오기
+  //console.log("data-link", e.target.data-link); 이건 안됨 js 에선 - 를 사용하지 않기 때문
+  console.log("data-link", e.target.dataset.link);
+  console.log("data-link-test", e.target.dataset.linkTest);
+
+  // 주소에  naver 가 있다면 네이버로 아니라면 구글로
+  // if (e.target.href.includes("naver")) {
+  //   location.href = e.target.href;
+  // } else {
+  //   location.href = "http://www.google.com";
+  // }
+});
+
 // form submit 발생시
 
 const form = document.querySelector("form");
