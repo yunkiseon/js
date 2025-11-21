@@ -32,9 +32,3 @@ next.addEventListener("click", (e) => {
   idx += 1;
   carousel.style.transform = `translate(-${100 * idx}vw)`;
 });
-
-function logText(msg) {
-  msg(); //msg는 변수이지만 밑에 전달인자로 사용되었다.
-}
-logText(() => console.log("hi"));
-// logText를 호출하면서 함수를 전달인자로 사용하는 것

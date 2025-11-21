@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getData(callBackFn) {
+        fetch("https://jsonplaceholder.typicode.com/todos/1")
+          .then((response) => response.json())
+          .then((data) => callBackFn(data));
+      }
+      function getData2(callBackFn2) {
+        fetch("https://jsonplaceholder.typicode.com/todos/")
+          .then((response) => response.json())
+          .then((data) => callBackFn2(data));
+      }
+
+      // 콜백 지옥
+      getData((data) => {
+        console.log(data);
+      });
+      // getData의 fetch 를 실행하고 data를 consolog 하는 함수
+      getData2((data) => {
+        console.log(data);
+      });
+      // getData2 도 동일하게 하는 함수 이 들은 일급함수 개념을 사용한 것이다.
+      // 이들은 비동기 함수인 getData,2 를 불러내기 위한 함수다.
+
+      // 이 콜백지옥을 해결하기 위해서 promise, async / await
+    </script>
+  </body>
+</html>
